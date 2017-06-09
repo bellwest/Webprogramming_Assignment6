@@ -1,2 +1,24 @@
-# Webprogramming_Assignment6
-영화에 대한 정보를 관리하고, 각각의 영화에 평점 및 소감을 남길 수 있는 개인페이지입니다.
+# README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...

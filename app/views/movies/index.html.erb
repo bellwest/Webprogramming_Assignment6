@@ -1,0 +1,111 @@
+
+    
+    <div id="links">
+        <table>
+            <tr>
+                <td><span>Links</span></td>
+                <td>
+                    <a href="http://www.cgv.co.kr">cgv</a>
+                </td>
+                <td>
+                    <a href="http://www.megabox.co.kr">megabox</a>
+                </td>
+                <td>
+                    <a href="http://www.lottecinema.co.kr/LCHS/index.aspx">lottecinema</a>
+                </td>
+                <td>
+                    <a href="https://www.netflix.com/browse">netflix</a>
+                </td>
+                <td>
+                    <a href="https://watcha.net">watcha</a>
+                </td>
+            <tr>
+        </table>
+        
+    </div>
+
+    <div id="home">
+        <h1> JongSeo's Movie Page </h1>
+    </div>
+    <table>
+    <tr>
+    <td style="width: 20%">
+    <div id="best" class="box">
+        <h3> The best 3 films that I've ever seen </h3>
+        <ol>
+            <li> The Lord of the Rings </li>
+            <li> Waikiki Brothers </li>
+            <li> The wolf of the wall.st </li>
+        </ol>
+
+        <h3> The most important things that my favorite movies must got </h3>
+        <ul>
+            <li> Reality </li>
+            <li> Adventure </li>
+            <li> Growth </li>
+            <li> Battle </li>
+            <li> Beauty </li>
+        </ul>
+    </div>
+    </td>
+    <td style="width: 60%">
+    <div id="thisweek" class="box">
+        <h2> Movies on the Theatre this week </h2>
+        <table>
+            <tbody> 
+            <% @movies.each do |movie| %>
+              <tr>
+                <td style="width: 150px; background-color: transparent"><%= link_to(movie) do %><img src="<%= movie.poster %>"/><% end %></td>
+                <td style="width: 550px"><%= link_to(movie) do %><span style="font-size: 30px"><%= movie.title %></span><% end %><br><br>
+                                         <%= "genre : " %><%= movie.genre %><br>
+                                         <%= "running time : "%><%= movie.runningtime.to_s + "m" %><br>
+                                         <%= "age : " %><% if movie.age < 7 %>
+                                                          <%= "for all ages" %>
+                                                        <% else %>
+                                                          <%= movie.age.to_s + "+" %>
+                                                        <% end %><br><br>
+                                         <% sum = 0 %> <% cnt = 0 %>
+                                         <% movie.reviews.each do |review| %>
+                                          <% if !review.score.nil? %> <% sum += review.score %><% cnt += 1%><% end %>
+                                         <% end %>
+                                         <% if cnt != 0 %>
+                                          <%= "score : (" + (sum / cnt).to_s + "/5)"%>
+                                         <% else %>
+                                          <%= "no scores" %>
+                                         <% end %>
+                                         <br><br>
+                                         <%= link_to 'edit', edit_movie_path(movie) %><br>
+                                         <%= link_to 'delete', movie, method: :delete, data: { confirm: 'are you sure?' } %></td>
+              </tr>
+            <% end %>
+              <tr>
+                <td colspan=2 style="background-color: transparent; text-align: center; font-weight: bold; font-family: courier; text-decoration: none; font-size: 20px"><%= link_to 'register new movie', new_movie_path %></td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+    </td>
+    <td>
+    <div id="myreviews" class="box">
+        <h3> Reviews </h3>
+        <ul><% @reviews.each do |review| %>
+            <li> <%= link_to(review.movie) do %>
+                    <%= review.movie.title %>
+                    <% if !review.score.nil? %><%= "(" + review.score.to_s + "/5)"%><% end %><%=" : " + review.body%><br>
+                 <%= "   -" + review.reviewer %><% end %>
+            </li>
+            <% end %>
+        </ul>
+    </div>
+    </td>
+    </tr>
+
+    <tr>
+    <td colspan=3>
+    <div id="contact">
+        If you want to contact me, call <span>010-9902-1610</span>
+    </div>
+    </td>
+    </tr>
+
+<p id="notice"><%= notice %></p>

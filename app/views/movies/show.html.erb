@@ -1,0 +1,51 @@
+<style>
+img {
+  height: 300px;
+}
+
+</style>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <span style="font-size: 48px; color: Red">
+  <%= @movie.title %></span>
+  </br>
+  <% sum = 0 %> <% cnt = 0 %>
+  <% @movie.reviews.each do |review| %>
+    <% if !review.score.nil? %> 
+      <% sum += review.score %><% cnt += 1%>
+    <% end %>
+  <% end %> 
+  <% if cnt != 0 %><%= "score : (" + (sum / cnt).to_s + "/5)"%>
+  <% else %><%= "no scores" %>
+  <% end %>
+</p>
+
+<img src= "<%= @movie.poster %>"/>
+
+<p>
+  <strong>Genre:</strong>
+  <%= @movie.genre %>
+</p>
+
+<p>
+  <strong>Runningtime:</strong>
+  <%= @movie.runningtime.to_s + "m" %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <% if @movie.age < 7 %><%= "for all ages" %>
+  <% else %><%= @movie.age.to_s + "+" %>
+  <% end %>
+</p>
+
+<h2>Reviews</h2>
+<%= render @movie.reviews %>
+
+<h2>Add a review:</h2>
+<%= render 'reviews/form' %>
+
+<%= link_to 'Edit', edit_movie_path(@movie) %> |
+<%= link_to 'Back', movies_path %>

@@ -1,0 +1,9 @@
+<p> 
+    <strong><%= review.reviewer %>
+        <% if !review.score.nil? %><%="(" + review.score.to_s + "/5)" %>
+        <% end %><%= " : " %></strong> 
+    
+    <%= review.body %> <%= link_to 'delete', [review.movie, review],
+    method: :delete,
+    data: { confirm: 'Are you sure?' } %> 
+</p>

@@ -1,0 +1,134 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+body {
+    background-color: #add8e6;
+    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+}
+body div {
+    top: 30px;
+}
+
+.box {
+    position: relative;
+    vertical-align: top;
+    top: 30px;
+}
+
+#links {
+    top: 0px;
+    left: -5px;
+    width: 100%;
+    z-index: 1;
+    font-family: Courier;
+    position: fixed;
+    color: #444444;
+    background-color: beige;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+#links span {
+    font-weight: bold;
+    color: blue;
+}
+
+#links td {
+    height: 30px;
+    text-align: center;
+    width: 200px;
+} 
+#links td hover {
+    background-color: orange;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+a hover {
+    font-weight: bold;
+}
+
+#home {
+    position: relative;
+    background-image : url("http://farm1.nzstatic.com/_proxy/imageproxy_1y/serve/home-of-middle-earth.jpg?height=420&outputformat=jpg&quality=75&source=1935513&transformationsystem=focalpointcrop&width=960&securitytoken=217F67996FB331083FA8B3978757C8BF");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+}
+
+#home h1 {
+    position: relative;
+    color: white;
+    top: 400px;
+    left: 30px;
+    font-size: 40px;
+}
+
+
+#best {
+    border-radius: 20px;
+    background-color: #6495ed;
+    font-size: 13px;
+    width: 250px;
+    /*height: 250px;*/
+    display: inline-block;
+}
+
+#thisweek {
+    /*height: 700px;*/
+    display: inline-block;
+    align-items: center;
+}
+
+#thisweek h2 {
+    text-align: center;
+    display: block;
+}
+
+#thisweek img {
+    width: 160px;
+}
+
+#thisweek table {
+    border: 1px dotted white;
+}
+
+#thisweek td {
+    background-color: white;
+}
+
+#myreviews {
+    margin-top: 20px;
+    border-radius: 20px;
+    background-color: #6495ed;
+    width: 250px;
+    display: inline-block;
+    float: right;
+}
+
+#contact {
+    position: relative;
+    display: block;
+    font-family: cursive;
+}
+
+#contact span {
+    font-weight: bold;
+    color: darkblue;
+}
